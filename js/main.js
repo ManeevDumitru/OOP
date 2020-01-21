@@ -21,29 +21,19 @@ class Bus {
     }
 
     arriveAtStation(station) {
-        console.log(`<- Bus arrives at ${station} station`)
-    }
-
-    openDoors() {
+        console.log(`<- Bus arrives at ${station} station`);
         console.log("Bus opens doors")
     }
 
-    unloadPassengers(count) {
-        console.log(`Bus unloads ${count} passengers`)
-    }
-
-    loadPassengers(count) {
-        console.log(`Bus loads ${count} passengers`)
-    }
-
-    closeDoors() {
-        console.log("Bus closes doors")
-    }
-
     leavesStation() {
-        console.log("-> Bus leaves stations")
+        console.log("Bus closes doors");
+        console.log("-> Bus leaves stations");
     }
 
+    passengerTransit(loadCount, unloadCount) {
+        console.log(`Bus unloads ${loadCount} passengers`);
+        console.log(`Bus loads ${unloadCount} passengers`);
+    }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -54,95 +44,59 @@ document.addEventListener("DOMContentLoaded", () => {
         bus.turnRight();
         bus.goForward(100);
         bus.arriveAtStation("Police Department");
-        bus.openDoors();
-        bus.unloadPassengers(Math.floor(Math.random()*15));
-        bus.loadPassengers(Math.floor(Math.random()*15));
-        bus.closeDoors();
+        bus.passengerTransit(Math.floor(Math.random()*15), Math.floor(Math.random()*15));
         bus.leavesStation();
         bus.goForward(200);
         bus.arriveAtStation('Guliver');
-        bus.openDoors();
-        bus.unloadPassengers(Math.floor(Math.random()*15));
-        bus.loadPassengers(Math.floor(Math.random()*15));
-        bus.closeDoors();
+        bus.passengerTransit(Math.floor(Math.random()*15), Math.floor(Math.random()*15));
         bus.leavesStation();
         bus.goForward(50);
         bus.turnLeft();
         bus.goForward(150);
         bus.arriveAtStation('Dacia');
-        bus.openDoors();
-        bus.unloadPassengers(Math.floor(Math.random()*15));
-        bus.loadPassengers(Math.floor(Math.random()*15));
-        bus.closeDoors();
+        bus.passengerTransit(Math.floor(Math.random()*15), Math.floor(Math.random()*15));
         bus.leavesStation();
         bus.goForward(100);
         bus.turnLeft();
         bus.goForward(200);
         bus.arriveAtStation('MeraxSoft');
-        bus.openDoors();
-        bus.unloadPassengers(Math.floor(Math.random()*15));
-        bus.loadPassengers(Math.floor(Math.random()*15));
-        bus.closeDoors();
+        bus.passengerTransit(Math.floor(Math.random()*15), Math.floor(Math.random()*15));
         bus.leavesStation();
         bus.goForward(200);
         bus.arriveAtStation('Slavena');
-        bus.openDoors();
-        bus.unloadPassengers(Math.floor(Math.random()*15));
-        bus.loadPassengers(Math.floor(Math.random()*15));
-        bus.closeDoors();
+        bus.passengerTransit(Math.floor(Math.random()*15), Math.floor(Math.random()*15));
         bus.leavesStation();
         bus.goForward(25);
         bus.turnLeft();
         bus.goForward(200);
         bus.arriveAtStation('Spital firoviar');
-        bus.openDoors();
-        bus.unloadPassengers(Math.floor(Math.random()*15));
-        bus.loadPassengers(Math.floor(Math.random()*15));
-        bus.closeDoors();
+        bus.passengerTransit(Math.floor(Math.random()*15), Math.floor(Math.random()*15));
         bus.leavesStation();
         bus.goForward(250);
         bus.arriveAtStation('Spital');
-        bus.openDoors();
-        bus.unloadPassengers(Math.floor(Math.random()*15));
-        bus.loadPassengers(Math.floor(Math.random()*15));
-        bus.closeDoors();
+        bus.passengerTransit(Math.floor(Math.random()*15), Math.floor(Math.random()*15));
         bus.leavesStation();
         bus.goForward(500);
-        bus.arriveAtStation('Cemetary');
-        bus.openDoors();
-        bus.unloadPassengers(Math.floor(Math.random()*15));
-        bus.loadPassengers(Math.floor(Math.random()*15));
-        bus.closeDoors();
+        bus.arriveAtStation('Cemetery');
+        bus.passengerTransit(Math.floor(Math.random()*15), Math.floor(Math.random()*15));
         bus.leavesStation();
         bus.goForward(300);
         bus.arriveAtStation('Steluta');
-        bus.openDoors();
-        bus.unloadPassengers(Math.floor(Math.random()*15));
-        bus.loadPassengers(Math.floor(Math.random()*15));
-        bus.closeDoors();
+        bus.passengerTransit(Math.floor(Math.random()*15), Math.floor(Math.random()*15));
         bus.leavesStation();
         bus.goForward(500);
         bus.arriveAtStation('Nikolaeva');
-        bus.openDoors();
-        bus.unloadPassengers(Math.floor(Math.random()*15));
-        bus.loadPassengers(Math.floor(Math.random()*15));
-        bus.closeDoors();
+        bus.passengerTransit(Math.floor(Math.random()*15), Math.floor(Math.random()*15));
         bus.leavesStation();
         bus.goForward(300);
         bus.arriveAtStation('Uzina Raut');
-        bus.openDoors();
-        bus.unloadPassengers(Math.floor(Math.random()*15));
-        bus.loadPassengers(Math.floor(Math.random()*15));
-        bus.closeDoors();
+        bus.passengerTransit(Math.floor(Math.random()*15), Math.floor(Math.random()*15));
         bus.leavesStation();
         bus.goForward(50);
         bus.turnLeft();
         bus.goForward(200);
         bus.arriveAtStation('Center');
-        bus.openDoors();
-        bus.unloadPassengers(Math.floor(Math.random()*15));
-        bus.loadPassengers(Math.floor(Math.random()*15));
-        bus.closeDoors();
+        bus.passengerTransit(Math.floor(Math.random()*15), Math.floor(Math.random()*15));
         bus.leavesStation();
     });
 });
