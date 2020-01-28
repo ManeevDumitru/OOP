@@ -5,8 +5,6 @@
 // 4. Numbers from given interval ( by user )
 // 5. Biggest number
 
-console.log('nibba');
-
 class Calculator {
   constructor() {
     this.numbers = [];
