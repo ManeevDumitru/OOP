@@ -5,8 +5,6 @@
 // 4. Amount of marks above or bellow of given mark
 // 5. Exercise requirement
 
-console.log('nibba');
-
 class Calculator {
   constructor() {
     this.marks = [];
