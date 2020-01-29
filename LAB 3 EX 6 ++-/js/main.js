@@ -37,8 +37,18 @@ class Calculator {
   }
 
   findMinMax() {
-    let max = this.temperatures.reduce((x,y) => {return (x > y) ? x : y});
-    let min = this.temperatures.reduce((x,y) => {return (x < y) ? x : y});
+    // let max = this.temperatures.reduce((x,y) => {return (x > y) ? x : y});
+    // let min = this.temperatures.reduce((x,y) => {return (x < y) ? x : y});
+    let max = this.temperatures[0];
+    let min = this.temperatures[0];
+    this.temperatures.forEach(value => {
+      if (value > max) {
+        max = value
+      }
+      if (value < min) {
+        min = value
+      }
+    });
     console.log(`This is min ${min}\nThis is max ${max}`);
     return [min, max]
   }
