@@ -17,75 +17,70 @@ class Calculator {
     for (let i = 0; this.numbers.length < arrayLength; i++){
       this.numbers.push(Number(Math.floor(Math.random() * 2001) + -1000)); // -1000 .. 1000
     }
-    console.log(this.numbers);
-    return this.numbers.join(' ');
+    return this.numbers;
   }
 
   checkParity(number) {
-    if (number % 2 === 0) {
-      console.log('even');
-      return true;
-    } else {
-      console.log('odd');
-      return false;
-    }
+     return number % 2 === 0
   }
 
-  checkArrayNumberParity() {
-    this.numbers.forEach(number => {
-      if (this.checkParity(number) === true) {
-        this.numbersAux.push(number);
+  arrayNumberParity() {
+    for (let i = 0; i < this.numbers.length; i++) {
+      if (this.checkParity(this.numbers[i])) {
+        this.numbersAux.push(this.numbers[i]);
       }
-    });
-    console.log(this.numbersAux);
-    return this.numbersAux;
+    }
   }
 
   firstNNumbers(number) {
     for (let i = 0; i < number; i++) {
       this.firstNumbers.push(this.numbers[i]);
     }
-    console.log(this.firstNumbers);
-    return this.firstNumbers.join(' ');
+    return this.firstNumbers;
   }
 
-  writeNumbersFromInterval(bottomLine, topLine) {
-    this.numbers.forEach(number => {
-      if (this.checkParity(number) === true && bottomLine < number && number < topLine) {
-        this.intervalNumbers.push(number)
+  numbersFromInterval(intervalStart, intervalEnd) {
+    for (let i = 0; i < this.numbers.length; i++) {
+      if (this.numbers[i] > intervalStart && this.numbers[i] < intervalEnd) {
+        this.intervalNumbers.push(this.numbers[i])
       }
-    });
-    console.log(this.intervalNumbers);
-    return this.intervalNumbers.join(' ');
+    }
+    if (this.intervalNumbers.length !== 0) {
+      return this.intervalNumbers;
+    } else {
+      return (`no numbers from given interval`)
+    }
   }
 
   biggestNumber() {
     let max = this.numbers[0];
-    this.numbers.forEach(number => {
-      if (number > max) {
-        max = number
+    for (let i = 1; i < this.numbers.length; i++) {
+      if (this.numbers[i] > max) {
+        max = this.numbers[i];
       }
-    });
-    console.log(max);
+    }
     return max;
   }
 
   showResult() {
-    document.getElementById('createdArray').innerHTML = `The created array is ${this.randomiseNumber()}`
+    document.getElementById('createdArray').innerHTML = `The created array is ${this.randomiseNumber()}`;
     document.getElementById('parityResult').innerHTML = `The given number is even? - ${this.checkParity().toString()}`;
     document.getElementById('firstNumbersResult').innerHTML = `The first numbers of the array are ${this.firstNNumbers()}`;
-    document.getElementById('intervalResult').innerHTML = `Numbers from given interval are ${this.writeNumbersFromInterval()}`;
+    document.getElementById('intervalResult').innerHTML = `Numbers from given interval are ${this.numbersFromInterval()}`;
     document.getElementById('biggestResult').innerHTML = `The biggest number is ${this.biggestNumber()}`
   }
 }
 
-document.getElementById('parityBut').addEventListener('click', () => {
+document.getElementById('startCalculationsBut').addEventListener('click', () => {
   const calculator = new Calculator();
   calculator.checkParity(document.getElementById('parityNumber').value);
   calculator.randomiseNumber(document.getElementById('arrayLength').value);
-  calculator.checkArrayNumberParity();
+  calculator.arrayNumberParity();
   calculator.firstNNumbers(document.getElementById('numberN').value);
-  calculator.writeNumbersFromInterval(document.getElementById('bottomLine').value,document.getElementById('topLine').value);
+  calculator.numbersFromInterval(
+    document.getElementById('intervalStart').value,
+    document.getElementById('intervalEnd').value
+  );
   calculator.biggestNumber();
   calculator.showResult();
 });
